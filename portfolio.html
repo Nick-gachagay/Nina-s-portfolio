@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ninah Mugo — Writer & Storyteller</title>
+  <meta name="description" content="Portfolio of Ninah Mugo — writer, storyteller, and content creator. Showcasing writing samples to attract job opportunities.">
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      color: #333;
+      background: linear-gradient(135deg, #8B4513, #000000, #F5F5DC);
+      background-size: 300% 300%;
+      animation: gradientAnimation 15s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Background animation */
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Container styles */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    
+    /* Header styles */
+    .site-header {
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    .site-title {
+      font-size: 2.5rem;
+      color: #8B4513;
+      margin-bottom: 5px;
+    }
+    
+    .tagline {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    
+    .nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .nav a {
+      text-decoration: none;
+      color: #8B4513;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav a:hover, .nav a.active {
+      background-color: #8B4513;
+      color: #F5F5DC;
+    }
+    
+    /* Intro section */
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      margin: 40px 0;
+    }
+    
+    .intro-left {
+      flex: 1;
+      min-width: 250px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #8B4513;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .intro-right {
+      flex: 2;
+      min-width: 300px;
+    }
+    
+    .intro-right h2 {
+      color: #8B4513;
+      margin-top: 0;
+    }
+    
+    .cta a {
+      display: inline-block;
+      background-color: #8B4513;
+      color: #F5F5DC;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    
+    .cta a:hover {
+      background-color: #654321;
+    }
+    
+    /* Featured posts */
+    .featured-posts {
+      margin: 40px 0;
+    }
+    
+    .featured-posts h3 {
+      color: #8B4513;
+      border-bottom: 2px solid #8B4513;
+      padding-bottom: 10px;
+    }
+    
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .post-card {
+      background-color: #F5F5DC;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .post-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .post-card h4 {
+      margin-top: 0;
+      color: #8B4513;
+    }
+    
+    .post-card time {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .post-card .view-doc {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 6px 12px;
+      background-color: #8B4513;
+      color: #F5F5DC;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+    
+    .post-card .view-doc:hover {
+      background-color: #654321;
+    }
+    
+    .more a {
+      color: #8B4513;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      padding: 10px 0;
+      transition: color 0.3s ease;
+    }
+    
+    .more a:hover {
+      color: #654321;
+      text-decoration: underline;
+    }
+    
+    /* Document Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: #8B4513;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .document-viewer {
+      margin-top: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      min-height: 300px;
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+    }
+    
+    .document-viewer h2 {
+      color: #8B4513;
+      margin-top: 0;
+      border-bottom: 1px solid #8B4513;
+      padding-bottom: 10px;
+    }
+    
+    .document-viewer h3 {
+      color: #8B4513;
+      margin-top: 25px;
+    }
+    
+    .document-viewer p {
+      margin-bottom: 15px;
+    }
+    
+    .document-viewer .document-title {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #8B4513;
+      font-weight: bold;
+    }
+    
+    .document-viewer .document-meta {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+    
+    .document-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .document-controls button {
+      padding: 8px 15px;
+      background-color: #8B4513;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .document-controls button:hover {
+      background-color: #654321;
+    }
+    
+    .document-controls button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 20px 0;
+      margin-top: auto;
+    }
+    
+    .site-footer a {
+      color: #8B4513;
+      text-decoration: none;
+    }
+    
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .intro {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .nav a {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .modal-content {
+        width: 95%;
+        padding: 20px;
+      }
+      
+      .document-viewer {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Ninah Mugo</h1>
+      <p class="tagline">Writer. Storyteller. Content Creator.</p>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div class="intro-left">
+        <img src="profile pic.jpeg" alt="profile pic.jpeg" class="profile-pic">
+      </div>
+      <div class="intro-right">
+        <h2>Hello — I'm Ninah.</h2>
+        <p>I'm Ninah Mugo, a versatile writer focused on crafting clear, engaging narratives that connect with readers and solve communication problems. I publish weekly and specialize in blog articles, features, and creative pieces aimed at employers and clients seeking thoughtful, reliable writing.</p>
+        <p class="cta"><a href="contact.html">Email me</a> to discuss opportunities.</p>
+      </div>
+    </section>
+
+    <section class="featured-posts">
+      <h3>Featured Posts</h3>
+      <div class="posts-grid">
+
+        <article class="post-card" onclick="openDocument('globalization')">
+          <h4>The Impact of Globalization on the Well-being of the Global South</h4>
+          <time datetime="2025-07-01">2025-07-01</time>
+          <p>Evidence and critique of globalization's effects on developing nations.</p>
+          <a class="view-doc">View Document</a>
+        </article>
+    
+        <article class="post-card" onclick="openDocument('ethics')">
+          <h4>The Ethics of Consumer Choices: Examining Apple's Impact</h4>
+          <time datetime="2025-06-15">2025-06-15</time>
+          <p>Analysis of Apple's business practices and their societal implications.</p>
+          <a class="view-doc">View Document</a>
+        </article>
+    
+        <article class="post-card" onclick="openDocument('wealth')">
+          <h4>Representations of Wealth and Class in Reality TV</h4>
+          <time datetime="2025-05-30">2025-05-30</time>
+          <p>Analyzing Selling Sunset, Bling Empire, and The Real Housewives of Beverly Hills.</p>
+          <a class="view-doc">View Document</a>
+        </article>
+    
+      </div>
+      <p class="more"><a href="portfolio.html">View full portfolio & blog</a></p>
+    </section>
+  </main>
+
+  <!-- Document Modal -->
+  <div id="documentModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()">&times;</button>
+      <div id="documentViewer" class="document-viewer">
+        <!-- Document content will be inserted here -->
+      </div>
+      <div class="document-controls">
+        <button id="prevPage" disabled>Previous</button>
+        <span id="pageInfo">Page 1 of 1</span>
+        <button id="nextPage">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Ninah Mugo — Written portfolio to attract opportunities. Email: <a href="mailto:ninahmugo@icloud.com">ninahmugo@icloud.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Document content for each post
+    const documents = {
+      globalization: [
+        {
+          title: "The Impact of Globalization on the Well-being of the Global South: Evidence and Critique",
+          content: `<div class="document-title">The Impact of Globalization on the Well-being of the Global South: Evidence and Critique</div>
+          <div class="document-meta">Student's Name | Professor | Institution | Course | Date</div>
+          
+          <h2>I. Introduction</h2>
+          <p>The effects of globalization have been a hot subject of debate about the effects of such interdependence of relationships in terms of trade, circulation of capital, transfer of technology, and labor migration on the Global South or the Developing World, as it is known, or the Third World as it is also termed. Despite the claims made by the proponents that globalization has resulted in economic growth and improved living standards, the critics argue that its benefits have been more on the side of some individuals, resulting in an increase in inequalities and a lack of sustainable development. The essay will discuss how globalization has raised the welfare of most of the population in the Global South, focusing on regions such as Sub-Saharan Africa, Southeast Asia, and Latin America.</p>
+          
+          <p>The question being discussed is whether globalization brought an increase in the quality of life of most of the area inhabitants or caused even more disparities that had been foregenerated at first. On the one hand, there is the opinion that globalization has been beneficial in terms of allowing the economy to integrate and enhancing the level of income and access to goods, services, and technology that have resulted in the flourishing of health, education, and infrastructure. Conversely, other people propose that globalization has enhanced the interdependence of the world on the external market, job insecurity, and continuity of environmental degradation. This essay will examine the arguments in support of and against globalization as a contributor to the welfare of the Global South on the basis of critical evaluation of case studies and empirical evidence and through the lenses of the anthropology approach, the economics approach, and the theory of development. This essay is going to present a more refined picture of the impact of globalization on the Global South, the positive impact of globalization, and failures.</p>
+          
+          <h2>II. Theoretical Framework</h2>
+          <p>Globalization is a very complex phenomenon, which has economic, political, and cultural consequences, among others (Ovodova, 2021). Three of these implications affect different outcomes in the Global South. One of the main theories used in describing the impacts of globalization is that of neoliberalism, which promotes expansion through market standards, state interventions, and the free flow of capital, goods, and services. The neoliberal ideology is of the opinion that economic development is a vital growth engine and that globalization as well is feared as a mechanism of induction of the developing countries within the global economy. In most cases, the neoliberal policies have proven to be an increasingly fashionable feature across most regions in the Global South under the recommendation of the international financial institutions like the World Bank and the International Monetary Fund (IMF). The policies advance deregulation of industries, privatization of state-owned industries, and liberality to free trade with the assurance that higher competition will be efficient in governing the economy and also result in poverty elimination.</p>
+          
+          <p>Nonetheless, opponents of neoliberalism claim that Globalization has brought economic growth and unequal development, whereby the gains are experienced mainly by the rich, leaving most of the population poor. This criticism is based on dependency theory, according to which developing nations depend on the Global North regarding capital, technology, and expertise, and, therefore, are stuck in a rut of underdevelopment. Researchers such as Wilson (2001) emphasize that Globalization has resulted in economic integration in Sub-Saharan Africa. However, it has not necessarily resulted in better lives for most people. The modernization theory perspective, in turn, assumes that the countries in question should adopt technological and industrial progress due to Globalization to modernize their economies. This perspective has been criticized as reductionist, since it overlooks local circumstances and the disparity in the distribution of the gains of Globalization.</p>
+          `
+        }
+      ],
+      ethics: [
+        {
+          title: "The Ethics of Consumer Choices: Examining the Impact of Apple on Society, the Environment, and the Global Economy",
+          content: `<div class="document-title">The Ethics of Consumer Choices: Examining the Impact of Apple on Society, the Environment, and the Global Economy</div>
+          <div class="document-meta">Student's Name | Professor | Course | Date</div>
+          
+          <p>Apple Inc. is one of the most powerful technology giants of the present day, and it defines the world of industries, consumer behavior, and even the global market. However, this is just a disguise of its clever products and stylish designs, as beneath it all, there is an intricate net of ethical concerns that people cannot see. From human rights and labor abuse in overseas manufacturing plants to environmental matters involving e-waste and resource exploitation, Apple's corporate affairs raise critical questions about the orientation of our consumerism. The idea of whether consumers should support Apple will be discussed in this essay, as well as covering the nature of business practices, how it keeps itself in the market, and wider aspects of buying its products. Although it dominates the market and implements the policy of sustainability, the ethical weaknesses of this company concerning labor rights, environmental constraints, and corporate governance indicate that customers need to be more careful when choosing this corporation as their patron.</p>
+          
+          <h2>Consumer Perception of Apple</h2>
+          <p>Apple has developed a strong brand image, epitomizing consumer definition and worldwide recognition. Many consumers view Apple as an innovator, quality, and status symbol, creating a tendency to purchase Apple products at high prices. Apple is marketing its products based on the above perception through its marketing strategies of sleek designs, latest technology, and a user-friendly ecosystem. This further contributes to Apple's attractiveness since it strives to provide high-quality customer service, as shown by its retail stores and online support. Nonetheless, an in-depth analysis of the company's ethical practices shows a great disparity with its well-polished public profile.</p>
+          
+          <p>With all the marketing success, Apple has been wary of environmental and social responsibility, which has been criticized. Giving an example, Foxconn, a prominent Apple supplier, was associated with a string of suicides among workers in 2010 because of the poor working conditions (Bukhari). Another area that Apple has received criticism for is that it is involved in environmental degradation owing to the mining of rare earth elements, the activities of which have catastrophic repercussions on the environment (Khan et al.). Depending on the level of consumer consciousness of such issues, people continue to buy the brand on faith in its stature or are starting to doubt the balance of their choices when purchasing decisions are made, given these ethical issues.</p>
+          
+          <p>Since Apple has grown into a household name, consumers in developing countries have been less knowledgeable about these matters. Although others might perceive Apple's sustainability practice as revolutionary, most people are unaware of the moral implications, including forced labor in its supply chain. Consumer awareness of Apple's sustainable practices shows that the efforts started by the company are more or less listed in the positive category. However, despite this, the gap in perception about what Apple does in terms of being green remains relatively high, especially in the markets that are less environmentally conscious (Andrew et al.). This indicates that consumers in these two regions might tend to disregard the fact that Apple lacks ethical requirements in support of the innovation and position of the brand.</p>
+          `
+        }
+      ],
+      wealth: [
+        {
+          title: "Representations of Wealth and Class in Reality TV: Analyzing Selling Sunset, Bling Empire, and The Real Housewives of Beverly Hills",
+          content: `<div class="document-title">Representations of Wealth and Class in Reality TV: Analyzing Selling Sunset, Bling Empire, and The Real Housewives of Beverly Hills</div>
+          <div class="document-meta">Student's Name | Professor | Course | Date</div>
+          
+          <p>By the time that Netflix dropped Selling Sunset in 2019 and Bling Empire in 2021, they were stepping into a reality TV world in which The Real Housewives of Beverly Hills (RHOBH) had been defining the terms on Bravo since the early 2000s. At face value, the three shows are in distinct quarters of the genre: Selling Sunset is about luxury real estate agents in Los Angeles, Bling Empire is about a group of Asian-American socialites, and RHOBH is about the lives of wealthy women in Beverly Hills. However, in spite of the format variations, they have a similar narrative format, which is wealth as performance and wealth as the self. These shows were being broadcasted in overlapping years, with Selling Sunset being bingeable on Netflix, Bling Empire with its two season run that lasted just a short time, and RHOBH with its weekly programming on Bravo. The overlap is important as it places them in the same cultural moment, where viewers may binge a Netflix glamour show on a Friday night and tune in to Bravo-style wealth-and-drama formula during the week. The fact that two of them are Netflix productions and one is Bravo-based also points out to the fact that the luxury and elite lifestyles portrayal is not limited to a specific network or style, but is a cross-platform phenomenon in the reality television. I have chosen these three shows because they all deal with the same theme extreme wealth and the lives of the ultra-rich but they do it in different ways transactional (Selling Sunset), cultural (Bling Empire), and performative (RHOBH). The side-by-side viewing of the two shows shows how reality TV applies a mixture of glamorization, humanization, and criticism to make wealth aspirational yet accessible to people who may not be able to live that life at all.</p>
+          
+          <h2>The Glamour of High-End Real Estate</h2>
+          <p>The glamour of the high-end real estate is not possible to separate in Selling Sunset without the drama of the cast of realtors. Episode 3 of Season 1 is one of the most dramatic episodes of the show: the million-dollar engagement party of Christine Quinn includes a black swan centerpiece, live music, and the amount of luxury decor that could be compared to a movie set in Hollywood. Marketed as a true celebration of love, it is as well an advertisement of a lifestyle that most of the viewers cannot afford. This combination of milestone and conspicuous consumption is precisely what Carr et al. refer to in their discussion of how television legitimizes inherited or unearned wealth: programmes that construct wealth as family money but present it as natural and deserving, supporting meritocratic ideas (Carr et al. 4). Although Christine is positioned as a "hard-working" realtor at The Oppenheim Group, there is no secret that her fiancee being a tech mogul contributes to her lifestyle. This twofold framing gives the audience the opportunity to simultaneously marvel at her hustle and justify her privilege, despite the fact that the level of her wealth is obviously not the result of real estate commissions alone. The show maintains the myth of meritocracy by intertwining the relationship between work and personal relationships and the importance of social connections and marriage in obtaining a luxury lifestyle.</p>
+          
+          <h2>Bling Empire: Affluence and Cultural Identity</h2>
+          <p>Bling Empire adopts another yet similar direction by combining affluence and cultural identity. The first episode of Season 1 presents Anna Shay, who is nonchalantly telling that she is not working because she does not have to, since she is the heiress of the empire of defense contracting owned by her father. In another scene, when one of her fellow actors refers to her as the real Crazy Rich Asian, she dismisses it as a joke, which is an indication of her understanding that she is privileged but does not want to be too serious about it. This is in line with Tarkiainen who notes that reality TV tends to package wealth as something that a person deserves by portraying wealthy people as morally upright or personally likable (Tarkiainen 3). Anna is depicted as very generous, e.g. when she spends a lot of money on gifts to her friends, to ensure that her privilege can be acceptable. Bling Empire also employs the use of Kevin Kreider, a model of humble background, to serve as the entry point to the audience. Initially, Kevin is the down-to-earth outsider who is appalled by the luxury of a private jet and having a million-dollar wardrobe. However, towards the end of the season, he is consumed by the luxury way of life of the group, proving Jahng right since heavy consumers of such media tend to think that wealth and material goods are easily accessible to them (Jahng 322). By doing so, Bling Empire not only recognizes the divide between the ultra-rich and regular viewers, but bridges it with a character arc that implies that upward mobility is only a question of being in the right circles.</p>
+          `
+        }
+      ]
+    };
+
+    let currentDocument = null;
+    let currentPage = 0;
+
+    function openDocument(docId) {
+      currentDocument = docId;
+      currentPage = 0;
+      showPage();
+      document.getElementById('documentModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+    }
+
+    function closeModal() {
+      document.getElementById('documentModal').style.display = 'none';
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+
+    function showPage() {
+      const viewer = document.getElementById('documentViewer');
+      const pageInfo = document.getElementById('pageInfo');
+      const prevButton = document.getElementById('prevPage');
+      const nextButton = document.getElementById('nextPage');
+      
+      const pages = documents[currentDocument];
+      viewer.innerHTML = pages[currentPage].content;
+      pageInfo.textContent = `Page ${currentPage + 1} of ${pages.length}`;
+      
+      // Enable/disable navigation buttons
+      prevButton.disabled = currentPage === 0;
+      nextButton.disabled = currentPage === pages.length - 1;
+    }
+
+    function nextPage() {
+      if (currentPage < documents[currentDocument].length - 1) {
+        currentPage++;
+        showPage();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        showPage();
+      }
+    }
+
+    // Set up event listeners
+    document.getElementById('nextPage').addEventListener('click', nextPage);
+    document.getElementById('prevPage').addEventListener('click', prevPage);
+
+    // Close modal when clicking outside content
+    document.getElementById('documentModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

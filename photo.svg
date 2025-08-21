@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="8" fill="#eef2f2"/>
+  <g transform="translate(50,35)">
+    <circle cx="50" cy="40" r="30" fill="#d1f5f4"/>
+    <rect x="10" y="85" width="80" height="40" rx="6" fill="#d1f5f4"/>
+  </g>
+  <text x="100" y="180" font-size="12" text-anchor="middle" fill="#94a3b8">Replace with headshot</text>
+</svg>
