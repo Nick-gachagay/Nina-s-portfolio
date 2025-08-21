@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Portfolio | Document Hub</title>
+    <title>Academic Portfolio | Ninah Mugo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', serif;
         }
         
         body {
@@ -115,6 +115,62 @@
             grid-column: 1;
         }
         
+        /* Intro Section */
+        .intro {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin: 2rem 0;
+            background: #F5F5DC;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .intro-left {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #8B4513;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .intro-right {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .intro-right h2 {
+            color: #8B4513;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        
+        .cta a {
+            display: inline-block;
+            background-color: #8B4513;
+            color: #F5F5DC;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .cta a:hover {
+            background-color: #654321;
+        }
+        
         .featured-posts {
             background: white;
             border-radius: 10px;
@@ -145,6 +201,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #d7ccc8;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
         }
         
         .post-card:hover {
@@ -303,6 +360,11 @@
                 gap: 0.5rem;
                 align-items: center;
             }
+            
+            .intro {
+                flex-direction: column;
+                text-align: center;
+            }
         }
         
         @media (max-width: 768px) {
@@ -336,8 +398,8 @@
             <h1 class="site-title">Ninah Mugo</h1>
             <p class="tagline">Writer • Storyteller • Content Creator</p>
             <nav class="nav">
-                <a href="index.html">Home</a>
-                <a href="about.html" class="active">About</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
                 <a href="portfolio.html">Portfolio</a>
                 <a href="testimonials.html">Testimonials</a>
                 <a href="contact.html">Contact</a>
@@ -354,6 +416,19 @@
         
         <div class="content-wrapper">
             <div class="main-content">
+                <!-- Intro Section -->
+                <section class="intro">
+                    <div class="intro-left">
+                        <img src="profile pic.jpeg" alt="Ninah Mugo" class="profile-pic">
+                    </div>
+                    <div class="intro-right">
+                        <h2>Hello — I'm Ninah.</h2>
+                        <p>I'm Ninah Mugo, a writer and researcher focused on crafting clear, engaging narratives that connect with readers and address complex societal issues. My academic work examines the intersection of globalization, consumer ethics, and media representations through a critical lens.</p>
+                        <p>I specialize in analytical essays, research papers, and thought pieces that challenge conventional perspectives and offer fresh insights into contemporary problems.</p>
+                        <p class="cta"><a href="contact.html">Email me</a> to discuss opportunities or research collaborations.</p>
+                    </div>
+                </section>
+                
                 <section class="github-info">
                     <h3>Documents Hosted on GitHub</h3>
                     <p>All documents are fetched directly from GitHub and displayed using Microsoft Office Online Viewer.</p>
@@ -361,7 +436,7 @@
                 </section>
                 
                 <section class="featured-posts">
-                    <h3>Featured Posts</h3>
+                    <h3>Featured Research</h3>
                     <div class="posts-grid">
                         <article class="post-card" data-document="https://github.com/username/repository/raw/main/The%20Impact%20of%20Globalization%20on%20the%20Well.edited.docx">
                             <div class="post-card-content">
@@ -390,13 +465,13 @@
                             </div>
                         </article>
                     </div>
-                    <p class="more"><a href="portfolio.html">View full portfolio & blog</a></p>
+                    <p class="more"><a href="portfolio.html">View full portfolio & research archive</a></p>
                 </section>
             </div>
         </div>
         
         <footer>
-            <p>&copy; 2025 Academic Research Portfolio. All rights reserved.</p>
+            <p>&copy; 2025 Ninah Mugo Academic Research Portfolio. All rights reserved.</p>
         </footer>
     </div>
     
